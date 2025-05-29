@@ -1,1 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Timeline Eras Facts</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', sans-serif;
+      background: #d2b79e;
+      color: #3e2c1c;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    h1 {
+      color: #3e2c1c;
+      margin-bottom: 20px;
+      font-weight: normal;
+      font-size: 36px;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    button {
+      background: #8c5e3b;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+      font-size: 20px;
+      transition: background 0.3s, transform 0.2s ease-in-out;
+    }
+
+    button:hover {
+      background: #6e4a2e;
+      transform: scale(1.1);
+    }
+
+    #fact {
+      background: #8c5e3b;
+      color: white;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    #categoryButtons {
+      display: none;
+      margin-top: 15px;
+    }
+
+    #nextButton, #backButton {
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-top: 15px;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    #nextButton {
+      background: #4CAF50;
+    }
+
+    #backButton {
+      background: #f44336;
+    }
+
+    #nextButton:hover, #backButton:hover {
+      background: #45a049;
+    }
+
+    #nextButton:disabled, #backButton:disabled {
+      background: #dcdcdc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h1>Timeline Fun Facts</h1>
+  <p>Select An Era:</p>
+  <button onclick="selectEra('Ancient')">Ancient</button>
+  <button onclick="selectEra('Medieval')">Medieval</button>
+  <button onclick="selectEra('Early Modern')">Early Modern</button>
+  <button onclick="selectEra('Modern')">Modern</button>
+
+  <div id="categoryButtons">
+    <p>Select a category:</p>
+    <button onclick="showFact('Events')">Events</button>
+    <button onclick="showFact('People')">People</button>
+    <button onclick="showFact('Culture')">Culture</button>
+  </div>
+
+  <p id="fact">Click An Era To Begin.</p>
+
+  <button id="nextButton" style="display:none;" onclick="nextFact()">Next</button>
+  <button id="backButton" style="display:none;" onclick="previousFact()">Back</button>
+
+  <script>
+    let currentFactIndex = 0;
+    let currentCategory = "";
+    let currentEra = "";
+    let currentFacts = [];
+
+    const Facts = {
+      Ancient: {
+        Events: [
+          "The Library of Alexandria was one of the most important centers of knowledge in the ancient world.",
+          "Rome covered 2 million square miles, including much of Europe, North Africa, and the Middle East.",
+          "The Battle of Marathon in 490 BC saw the Greeks defeat the Persian Empire."
+        ],
+        People: [
+          "Socrates, Aristotle, and Pythagoras were among the influential thinkers of Ancient times.",
+          "Alexander the Great never lost a battle during his 15 years of conquest.",
+          "Julius Caesar's assassination in 44 BC led to the rise of the Roman Empire."
+        ],
+        Culture: [
+          "The Olympic Games were created in Greece to honor Zeus.",
+          "Ancient Egyptians worshipped many gods and goddesses, with temples dedicated to each.",
+          "Makeup was worn by both men and women in Ancient Egypt, for both beauty and protection."
+        ]
+      },
+      Medieval: {
+        Events: [
+          "The Black Death killed an estimated 25 to 50 million people in Europe.",
+          "The Crusades were a series of wars between Christians and Muslims for control of Jerusalem.",
+          "In 1518, hundreds of people in Strasbourg danced uncontrollably for weeks making some have strokes, heart attacks, and die."
+        ],
+        People: [
+          "Genghis Khan's descendants make up 1 in 200 men today.",
+          "King Baldwin ruled Jerusalem despite having leprosy and being just 13 years old.",
+          "Saladin recaptured Jerusalem from the Crusaders and was respected by both sides."
+        ],
+        Culture: [
+          "Vikings introduced fur-lined cloaks and embroidered garments to medieval Europe.",
+          "High-class marriages in the Medieval era were often political arrangements.",
+          "People believed in dragons, fairies, and witches, with garlic used to ward off evil spirits."
+        ]
+      },
+      "Early Modern": {
+        Events: [
+          "Christopher Columbus's journey opened the door for European exploration.",
+          "Jamestown, founded in 1607, was the first permanent English settlement in North America.",
+          "The printing press, invented by Gutenberg, revolutionized communication in the 15th century."
+        ],
+        People: [
+          "Galileo, Newton, and Kepler revolutionized our understanding of the universe.",
+          "Leonardo da Vinci was not only a painter, but also an inventor and scientist.",
+          "Shakespeare became the greatest English playwright in literature, whose works are still used today."
+        ],
+        Culture: [
+          "Baroque composers like Bach and Vivaldi changed music forever.",
+          "Humanism emphasized individual potential and classical learning.",
+          "The scientific revolution changed the way humans viewed the universe, with developments and discoveries made by scientists."
+        ]
+      },
+      Modern: {
+        Events: [
+          "World War I began after Archduke Franz Ferdinand was assassinated.",
+          "The rise of the internet revolutionized global communication and information sharing.",
+          "The fall of the Berlin Wall symbolized the end of the Cold War and signaled the collapse of Eastern Communism in Europe."
+        ],
+        People: [
+          "Martin Luther King Jr. led non-violent movements for civil rights.",
+          "Steve Jobs co-founded Apple and helped shape the modern tech world.",
+          "Albert Einstein, one of the most influential minds in history, developed theories of relativity, furthering our understanding of the universe."
+        ],
+        Culture: [
+          "Jazz music was once banned in schools and churches for being too rebellious.",
+          "Early color photographs were criticized for lacking the artistic quality of black-and-white images.",
+          "Platforms such as Facebook, Instagram, and Twitter changed the way people communicate."
+        ]
+      }
+    };
+
+    function selectEra(era) {
+      currentEra = era;
+      currentCategory = "";
+      document.getElementById("categoryButtons").style.display = "block";
+      fadeInElement("categoryButtons");
+      document.getElementById("fact").innerText = "Select a category in the " + era + " era.";
+      fadeInElement("fact");
+      document.getElementById("nextButton").style.display = "none";
+      document.getElementById("backButton").style.display = "none";
+    }
+
+    function showFact(category) {
+      currentCategory = category;
+      currentFacts = Facts[currentEra][category];
+      currentFactIndex = 0;
+      fadeInElement("fact");
+      displayFact();
+    }
+
+    function displayFact() {
+      if (currentFacts.length > 0) {
+        fadeInElement("fact");
+        document.getElementById("fact").innerText = currentFacts[currentFactIndex];
+        document.getElementById("nextButton").style.display = "inline";
+        document.getElementById("backButton").style.display = "inline";
+      } else {
+        document.getElementById("fact").innerText = "No facts available.";
+        document.getElementById("nextButton").style.display = "none";
+        document.getElementById("backButton").style.display = "none";
+      }
+    }
+
+    function nextFact() {
+      if (currentFactIndex < currentFacts.length - 1) {
+        currentFactIndex++;
+        displayFact();
+      }
+    }
+
+    function previousFact() {
+      if (currentFactIndex > 0) {
+        currentFactIndex--;
+        displayFact();
+      }
+    }
+
+    function fadeInElement(id) {
+      const element = document.getElementById(id);
+      element.style.opacity = 0;
+      element.style.display = "block";
+      setTimeout(() => {
+        element.style.transition = "opacity 0.5s ease-in-out";
+        element.style.opacity = 1;
+      }, 50); // slight delay to ensure transition
+    }
+  </script>
+</body>
+</html>
 

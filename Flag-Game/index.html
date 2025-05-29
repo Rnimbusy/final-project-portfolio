@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag Guessing Game</title>
+    <style>
+        body {
+            background-image: url('https://www.euroaccessories.co.uk/media/catalog/product/cache/de1f6a8f5696f0794821adb579d7d23b/image/629345a6/world-flags-5ft-x-3ft-12pcs-country-flag.jpg');
+            background-size: cover;
+            font-family: Times New Roman, sans-serif;
+            text-align: center;
+        }
+        #game-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #flag-container img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid black;
+        }
+        #answer-buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        #next-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #next-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1>Flag Guessing Game</h1>
+        <div id="flag-container">
+            <img id="flag" src="" alt="Country Flag">
+        </div>
+        <div id="answer-buttons" class="btn-container"></div>
+        <button id="next-btn" onclick="nextFlag()">Next</button>
+    </div>
+
+    <script>
+        const flags = [
+            { country: "Bhutan", image: "https://upload.wikimedia.org/wikipedia/commons/9/91/Flag_of_Bhutan.svg" },
+            { country: "Seychelles", image: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Seychelles.svg" },
+            { country: "Eswatini", image: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Flag_of_Eswatini.svg" },
+            { country: "Brunei", image: "https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Brunei.svg" },
+            { country: "Kiribati", image: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Kiribati.svg" },
+            { country: "Vanuatu", image: "https://cdn.britannica.com/05/3305-050-94F53891/Flag-Vanuatu.jpg" },
+            { country: "Belize", image: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Flag_of_Belize.svg" },
+            { country: "Saint Kitts and Nevis", image: "https://cdn.britannica.com/22/5122-050-9813E394/Flag-Saint-Kitts-and-Nevis.jpg" },
+            { country: "Comoros", image: "https://upload.wikimedia.org/wikipedia/commons/9/94/Flag_of_the_Comoros.svg" },
+            { country: "Malawi", image: "https://upload.wikimedia.org/wikipedia/commons/d/d1/Flag_of_Malawi.svg" },
+            { country: "Mozambique", image: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Mozambique.svg" },
+            { country: "Papua New Guinea", image: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Flag_of_Papua_New_Guinea.svg" },
+            { country: "Suriname", image: "https://upload.wikimedia.org/wikipedia/commons/6/60/Flag_of_Suriname.svg" },
+            { country: "Lesotho", image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Flag_of_Lesotho.svg" },
+            { country: "Timor-Leste", image: "https://upload.wikimedia.org/wikipedia/commons/2/26/Flag_of_East_Timor.svg" }
+        ];
+
+        let currentFlagIndex = -1;
+
+        function nextFlag() {
+            currentFlagIndex = (currentFlagIndex + 1) % flags.length;
+            const flagData = flags[currentFlagIndex];
+
+            document.getElementById("flag").src = flagData.image;
+
+            generateAnswerButtons(flagData.country);
+        }
+
+        function generateAnswerButtons(correctAnswer) {
+            const answerButtons = document.getElementById("answer-buttons");
+            answerButtons.innerHTML = ""; // Clear previous buttons
+
+            let answers = flags.map(f => f.country); // Get all country names
+            answers = answers.filter(c => c !== correctAnswer); // Remove correct answer
+            answers = answers.sort(() => 0.5 - Math.random()).slice(0, 3); // Pick 3 random incorrect answers
+            answers.push(correctAnswer); // Add correct answer
+            answers = answers.sort(() => 0.5 - Math.random()); // Shuffle again
+
+            answers.forEach(answer => {
+                const button = document.createElement("button");
+                button.textContent = answer;
+                button.classList.add("btn");
+                button.onclick = () => checkAnswer(answer, correctAnswer);
+                answerButtons.appendChild(button);
+            });
+        }
+
+        function checkAnswer(selected, correct) {
+            if (selected === correct) {
+                alert("✅ Correct!");
+            } else {
+                alert(`❌ Wrong! The correct answer is ${correct}`);
+            }
+        }
+
+        nextFlag(); // Load the first flag on page load
+    </script>
+</body>
+</html>
 

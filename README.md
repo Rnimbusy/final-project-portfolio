@@ -70,7 +70,7 @@ Each project was built from scratch and reflects a different coding skill I deve
 - **Live Site:** [https://yourusername.github.io/final-project-portfolio/](https://yourusername.github.io/final-project-portfolio/)  
 - **GitHub Repository:** [https://github.com/yourusername/final-project-portfolio](https://github.com/yourusername/final-project-portfolio)
 
-> ✏️ Make sure to update both links with your actual GitHub username before submitting!
+in the works
 
 ---
 

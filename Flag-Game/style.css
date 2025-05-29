@@ -1,114 +1,62 @@
-// Initialize game variables
-let currentRound = 0;
-let score = 0;
-
-// Flags data: flag images, correct answers, and options for each round
-const flags = [
-    {
-        image: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Flag_of_Bhutan.svg', 
-        correctAnswer: 'Bhutan',
-        options: ['Bhutan', 'Mongolia', 'Nepal', 'Tibet']
-    },
-    {
-        image: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Seychelles.svg', 
-        correctAnswer: 'Seychelles',
-        options: ['Seychelles', 'Mauritius', 'Maldives', 'Comoros']
-    },
-    {
-        image: 'https://upload.wikimedia.org/wikipedia/commons/f/fb/Flag_of_Eswatini.svg', 
-        correctAnswer: 'Eswatini',
-        options: ['Eswatini', 'Lesotho', 'Botswana', 'Zimbabwe']
-    },
-    {
-        image: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_Brunei.svg', 
-        correctAnswer: 'Brunei',
-        options: ['Brunei', 'Malaysia', 'Indonesia', 'Philippines']
-    },
-    {
-        image: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Kiribati.svg', 
-        correctAnswer: 'Kiribati',
-        options: ['Kiribati', 'Tuvalu', 'Samoa', 'Fiji']
-    },
-    {
-        image: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Vanuatu.svg', 
-        correctAnswer: 'Vanuatu',
-        options: ['Vanuatu', 'Solomon Islands', 'Papua New Guinea', 'Tonga']
-    },
-    {
-        image: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Flag_of_Belize.svg', 
-        correctAnswer: 'Belize',
-        options: ['Belize', 'Honduras', 'Guatemala', 'Nicaragua']
-    },
-    {
-        image: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Flag_of_Saint_Kitts_and_Nevis.svg', 
-        correctAnswer: 'Saint Kitts and Nevis',
-        options: ['Saint Kitts and Nevis', 'Dominica', 'Saint Lucia', 'Grenada']
-    },
-    {
-        image: 'https://upload.wikimedia.org/wikipedia/commons/9/94/Flag_of_the_Comoros.svg', 
-        correctAnswer: 'Comoros',
-        options: ['Comoros', 'Seychelles', 'Madagascar', 'Mauritius']
-    },
-    {
-        image: 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Flag_of_Malawi.svg', 
-        correctAnswer: 'Malawi',
-        options: ['Malawi', 'Zambia', 'Mozambique', 'Tanzania']
-    },
-    {
-        image: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Mozambique.svg', 
-        correctAnswer: 'Mozambique',
-        options: ['Mozambique', 'Angola', 'Zimbabwe', 'Namibia']
-    },
-    {
-        image: 'https://upload.wikimedia.org/wikipedia/commons/e/e3/Flag_of_Papua_New_Guinea.svg', 
-        correctAnswer: 'Papua New Guinea',
-        options: ['Papua New Guinea', 'Solomon Islands', 'Fiji', 'Timor-Leste']
-    },
-    {
-        image: 'https://upload.wikimedia.org/wikipedia/commons/6/60/Flag_of_Suriname.svg', 
-        correctAnswer: 'Suriname',
-        options: ['Suriname', 'Guyana', 'Paraguay', 'Venezuela']
-    },
-    {
-        image: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Flag_of_Lesotho.svg', 
-        correctAnswer: 'Lesotho',
-        options: ['Lesotho', 'Eswatini', 'Botswana', 'Malawi']
-    },
-    {
-        image: 'https://upload.wikimedia.org/wikipedia/commons/2/26/Flag_of_East_Timor.svg', 
-        correctAnswer: 'Timor-Leste',
-        options: ['Timor-Leste', 'Papua New Guinea', 'Solomon Islands', 'Vanuatu']
-    }
-];
-
-// Load the flag and answer options for the current round
-function loadFlag(round) {
-    const flag = flags[round];
-    document.getElementById('flag').src = flag.image; // Change flag image
-
-    const buttons = document.querySelectorAll('#answer-buttons .btn'); // Get answer buttons
-    flag.options.forEach((option, index) => {
-        buttons[index].textContent = option; // Update button text with options
-    });
+*{
+ margin: 800;
+padding: 0px;
+font-family: 'Poppins', sans-serif;
+ box-sizing:border-box;
 }
-
-// Function to check the selected answer
-function checkAnswer(selected) {
-    const correct = flags[currentRound].correctAnswer;
-    if (selected === correct) {
-        alert("✅ Correct!");
-        score++;
-    } else {
-        alert(`❌ Wrong! The correct answer is ${correct}`);
-    }
+body{
+  background:#
 }
-
-// Function to move to the next round
-function nextFlag() {
-    currentRound = (currentRound + 1) % flags.length;
-    loadFlag(currentRound);
+.app{
+  background:#e0e1dd;
+  width:90%;
+  max-width:600px;
+  margin:100 px auto 0;
+  border-radius:10px
+  padding:30px;  
 }
-
-// Load the first flag when the page loads
-loadFlag(currentRound);
-
+.app h1{
+  font-size:25px;
+  color:
+  font-weight:600;
+  border-bottom: 1px sold #333;
+  padding-bottom:30px;
+  
+}
+.quiz{
+  padding:20px 0;
+}
+.quix h2{
+  font-size:18px;
+  color: #
+  font-weight:600;
+  
+}
+.btn{
+  background: ;
+  color: # ;
+  font-weight:500;
+  width:100%;
+  border: 1px solid #222;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+  border-radius:4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn:hover{
+  background:#222;
+  color: #ffff;
+}
+#next-btn{
+  background: #000000;
+  color: #ffff;
+  font-weight:500;
+  width: 150px;
+  border: 0;
+  padding: 10px;
+  margin: 20px auto 0;
+  border-radius: 4px;
+  cursor: pointer;
+}

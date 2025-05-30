@@ -1,84 +1,165 @@
-# Francisco Diaz – Final Project Portfolio
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Francisco Diaz – Final Project Portfolio</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+      margin: 0;
+      padding: 0;
+      background-color: #cce7ff;
+      text-align: center;
+      font-size: 20px;
+    }
 
-## 👋 About Me
+    h1, h2 {
+      color: white;
+      background-color: #5fa8d3;
+      padding: 1rem;
+      border-radius: 10px;
+      border: solid #1c4e80 4px;
+      margin: 20px auto;
+      max-width: 80%;
+      font-size: 32px;
+      font-family: 'Comic Sans MS', cursive;
+    }
 
-When I first started coding, I knew literally nothing. One of the first things that threw me off was binary. It felt like I was learning a new language made of just 0s and 1s, and I couldn’t wrap my head around how that connected to real programs. At first, writing even a basic `if-else` statement felt confusing, and debugging was frustrating because I didn’t always know what I was looking for. 
+    .profile-img {
+      width: 40%;
+      border-radius: 15px;
+      display: block;
+      margin: 20px auto;
+      border: 5px solid #1c4e80;
+      padding: 5px;
+      background-color: #e0f0ff;
+      box-shadow: 5px 5px 15px rgba(0, 0, 50, 0.2);
+    }
 
-But over time, with practice, I began to understand the concepts more and more. I got more comfortable using arrays to organize data and started seeing how loops could make code more efficient. Even though I messed up a lot, those mistakes actually helped me learn. One of the hardest parts was figuring out how to break problems down—sometimes I’d stare at a blank screen not even knowing where to start. But after practicing with different challenges and projects, I learned how to plan out my code and think logically.
+    .box {
+      background: #e6f3ff;
+      border: 3px solid #5fa8d3;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 80%;
+      margin: 20px auto;
+      box-shadow: 3px 3px 10px rgba(0, 0, 100, 0.1);
+      font-size: 20px;
+      font-family: 'Comic Sans MS', cursive;
+    }
 
-While I’m not the best programmer, I am very satisfied with the progress I’ve made throughout the year. I’m also very thankful for Mr. Alvarado and the wisdom he shared with us.
+    a {
+      text-decoration: none;
+      color: #1c4e80;
+      font-weight: bold;
+    }
 
----
+    a:hover {
+      text-decoration: underline;
+      color: #0a3a66;
+    }
 
-## 🌐 About the Project & What I Learned
+    ul {
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 20px;
+      font-family: 'Comic Sans MS', cursive;
+    }
 
-This website is a personal portfolio that includes an **About Me** section introducing who I am and what I do, as well as a **Project Gallery** showcasing the projects I’ve built this year. It features a clean and modern design that reflects my personal style, and it includes fully responsive, functional links to live project demos.
+    p {
+      font-size: 20px;
+      font-family: 'Comic Sans MS', cursive;
+    }
 
-Throughout the year, I’ve learned to:
-- Build and style webpages using HTML, CSS, and JavaScript
-- Debug and enhance interactive features
-- Use version control with Git
-- Deploy websites through GitHub Pages
+    footer {
+      text-align: center;
+      padding: 12px;
+      background-color: #1c4e80;
+      color: white;
+      margin-top: 30px;
+      font-family: 'Comic Sans MS', cursive;
+    }
+  </style>
+</head>
+<body>
 
----
+  <img class="profile-img" src="https://preview.redd.it/miyamoto-musashi-5120x2880-v0-2jchkbkcmfqd1.jpeg?auto=webp&s=a2b53e104e1d89e1a584e10c96451e680ea15bdb" alt="Profile Image" />
 
-## 🧭 Overview of Portfolio Site
+  <h1>Francisco Diaz – Final Project Portfolio</h1>
 
-This site includes:
-- An **About Me** section
-- A showcase of **four interactive projects** created throughout the school year
-- A contact section and clean visual styling
+  <div class="box">
+    <h2>👋 About Me</h2>
+    <p>When I first started coding, I knew literally nothing. One of the first things that threw me off was binary... (rest of your paragraph).</p>
+  </div>
 
----
+  <div class="box">
+    <h2>🌐 About the Project & What I Learned</h2>
+    <p>This website is a personal portfolio... (rest of your paragraph).</p>
+    <ul>
+      <li>Build and style webpages using HTML, CSS, and JavaScript</li>
+      <li>Debug and enhance interactive features</li>
+      <li>Use version control with Git</li>
+      <li>Deploy websites through GitHub Pages</li>
+    </ul>
+  </div>
 
-## 💻 Featured Projects
+  <div class="box">
+    <h2>🛍️ Overview of Portfolio Site</h2>
+    <p>This site includes:</p>
+    <ul>
+      <li>An About Me section</li>
+      <li>A showcase of four interactive projects</li>
+      <li>A contact section and clean visual styling</li>
+    </ul>
+  </div>
 
-### 1. Flag Game  
-**Description:** A quiz about flags from around the world that helps users test and improve their flag knowledge while having fun.  
-**Features:** Interactive buttons to select answers with feedback for correct and incorrect responses.  
-**Tech Stack:** HTML, CSS, JavaScript
+  <div class="box">
+    <h2>💻 Project 1: Flag Game</h2>
+    <p><strong>Description:</strong> A quiz about flags from around the world that helps users test and improve their flag knowledge.</p>
+    <p><strong>Features:</strong> Interactive buttons with answer feedback.</p>
+    <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
+  </div>
 
----
+  <div class="box">
+    <h2>📅 Project 2: Timeline Fun Facts</h2>
+    <p><strong>Description:</strong> A timeline of historical facts from different eras and categories.</p>
+    <p><strong>Features:</strong> Start buttons and back/forward navigation.</p>
+    <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
+  </div>
 
-### 2. Timeline Fun Facts  
-**Description:** A timeline of historical facts from different eras and categories that users can explore and learn from.  
-**Features:** Start buttons to choose a timeline, and back/forward buttons for navigation.  
-**Tech Stack:** HTML, CSS, JavaScript
+  <div class="box">
+    <h2>✉️ Project 3: To-Do List</h2>
+    <p><strong>Description:</strong> A simple productivity app to manage tasks.</p>
+    <p><strong>Features:</strong> Add/delete tasks dynamically.</p>
+    <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
+  </div>
 
----
+  <div class="box">
+    <h2>🎮 Project 4: Chikawa Run</h2>
+    <p><strong>Description:</strong> A fun maze game with randomly generated levels.</p>
+    <p><strong>Features:</strong> Arrow or WASD key movement.</p>
+    <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
+  </div>
 
-### 3. To-Do List  
-**Description:** A simple productivity app where users can add and remove tasks to stay organized.  
-**Features:** Interactivity to input, manage, and delete tasks dynamically.  
-**Tech Stack:** HTML, CSS, JavaScript
+  <div class="box">
+    <h2>🔗 Links</h2>
+    <p>Live Site: <a href="https://rnimbusy.github.io/final-project-portfolio/" target="_blank">https://rnimbusy.github.io/final-project-portfolio/</a></p>
+    <p>GitHub Repository: <a href="https://github.com/rnimbusy/final-project-portfolio" target="_blank">https://github.com/rnimbusy/final-project-portfolio</a></p>
+  </div>
 
----
+  <div class="box">
+    <h2>📁 Class Repo Folder</h2>
+    <p>This folder contains:</p>
+    <ul>
+      <li>All project files (HTML, CSS, JS, images)</li>
+      <li>My personal README.md file (this one!)</li>
+    </ul>
+    <p>Thanks for visiting! 😊</p>
+  </div>
 
-### 4. Chikawa Run  
-**Description:** A fun maze game with different randomly generated mazes for users to solve.  
-**Features:** Player movement using arrow keys or WASD controls.  
-**Tech Stack:** HTML, CSS, JavaScript
-
----
-
-Each project was built from scratch and reflects a different coding skill I developed this year.
-
----
-
-## 🔗 Links
-
-- **Live Site:** [https://yourusername.github.io/final-project-portfolio/](https://yourusername.github.io/final-project-portfolio/)  
-- **GitHub Repository:** [https://github.com/yourusername/final-project-portfolio](https://github.com/yourusername/final-project-portfolio)
-
-in the works
-
----
-
-## 📁 Class Repo Folder
-
-This folder contains:
-- All project files (HTML, CSS, JS, images)
-- My personal `README.md` file (this one!)
-
-Thanks for visiting! 😊
-
+  <footer>
+    <p>&copy; 2025 Francisco Diaz</p>
+  </footer>
+</body>
+</html>

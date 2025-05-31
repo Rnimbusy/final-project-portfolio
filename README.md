@@ -60,7 +60,7 @@ Each project was built from scratch and reflects a different coding skill I deve
 
 ## 🔗 Links
 
-- **Live Site:** [ https://rnimbusy.github.io/final-project-portfolio/)  
+- **Live Site:** [  https://rnimbusy.github.io/final-project-portfolio/)  
 - **GitHub Repository:** [https://github.com/yourusername/final-project-portfolio](https://github.com/yourusername/final-project-portfolio)
 
 in the works

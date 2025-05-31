@@ -54,13 +54,6 @@ This site includes:
 
 ---
 
-### 4. Chikawa Run  
-**Description:** A fun maze game with different randomly generated mazes for users to solve.  
-**Features:** Player movement using arrow keys or WASD controls.  
-**Tech Stack:** HTML, CSS, JavaScript
-
----
-
 Each project was built from scratch and reflects a different coding skill I developed this year.
 
 ---
